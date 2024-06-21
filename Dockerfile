@@ -1,9 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install python3.10
-RUN python3-pip
-RUN git
+RUN apt-get install python3.10 python3-pip git
 
 RUN pip3 install pyyaml
 
