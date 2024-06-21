@@ -9,17 +9,14 @@ RUN apt-get update \
 
 RUN python3 --version
 RUN pip3 --version
-
-RUN pip3 install virtualenv
-
 # Create a directory for your application
 WORKDIR /app
 
 # Create a virtual environment and activate it
-RUN python3 -m virtualenv venv
+RUN python3 -m venv venv
 ENV PATH="/app/venv/bin:$PATH"
 
-RUN pip3 install pyyaml
+RUN . /app/venv/bin/activate && pip install pyyaml
 
 COPY feed.py /app/feed.py
 COPY feed.py /usr/bin/feed.py
